@@ -1,4 +1,4 @@
-/*! PhotoSwipe - v4.1.2 - 2017-04-05
+/*! PhotoSwipe - v4.1.2 - 2017-12-19
 * http://photoswipe.com
 * Copyright (c) 2017 Dmitry Semenov; */
 (function (root, factory) { 
@@ -327,6 +327,7 @@ var _options = {
 	arrowKeys: true,
 	mainScrollEndFriction: 0.35,
 	panEndFriction: 0.35,
+	fillAbsolute: true,
 	isClickableElement: function(el) {
         return el.tagName === 'A';
     },
@@ -899,7 +900,8 @@ var publicMethods = {
 				template.style.position = 'absolute';
 				template.style.top = framework.getScrollY() + 'px';
 			} else {
-				template.style.position = 'fixed';
+				if(!_options.fillAbsolute)
+					template.style.position = 'fixed';
 			}
 		}
 
@@ -2548,7 +2550,7 @@ var _showOrHideTimeout,
 				framework.addClass(template, 'pswp--animated-in');
 				_shout('initialZoom' + (out ? 'OutEnd' : 'InEnd'));
 			} else {
-				self.template.removeAttribute('style');
+				//self.template.removeAttribute('style');
 				self.bg.removeAttribute('style');
 			}
 

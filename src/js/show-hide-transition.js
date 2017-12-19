@@ -42,7 +42,7 @@ var _showOrHideTimeout,
 				framework.addClass(template, 'pswp--animated-in');
 				_shout('initialZoom' + (out ? 'OutEnd' : 'InEnd'));
 			} else {
-				self.template.removeAttribute('style');
+				//self.template.removeAttribute('style');
 				self.bg.removeAttribute('style');
 			}
 

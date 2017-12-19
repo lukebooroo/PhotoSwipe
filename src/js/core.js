@@ -29,6 +29,7 @@ var _options = {
 	arrowKeys: true,
 	mainScrollEndFriction: 0.35,
 	panEndFriction: 0.35,
+	fillAbsolute: true,
 	isClickableElement: function(el) {
         return el.tagName === 'A';
     },
@@ -601,7 +602,8 @@ var publicMethods = {
 				template.style.position = 'absolute';
 				template.style.top = framework.getScrollY() + 'px';
 			} else {
-				template.style.position = 'fixed';
+				if(!_options.fillAbsolute)
+					template.style.position = 'fixed';
 			}
 		}
 
